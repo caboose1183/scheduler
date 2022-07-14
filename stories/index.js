@@ -18,6 +18,7 @@ import Show from 'components/Appointment/Show';
 import Confirm from 'components/Appointment/Confirm';
 import Status from 'components/Appointment/Status';
 import Error from 'components/Appointment/Error';
+import Form from 'components/Appointment/Form';
 
 storiesOf("Button", module)
   .addParameters({
@@ -150,6 +151,10 @@ storiesOf("Appointment", module)
   .add("Header", () => <Header time='12pm'/>)
   .add('Empty', () => <Empty onAdd={action("onAdd")} />)
   .add('Show', () => <Show onEdit={action('onEdit')} onDelete={action('onDelete')}/>)
+
   .add('Confirm', () => <Confirm onConfirm={action('onConfirm')} onCancel={action('onCancel')}/>)
   .add('Deleting', () => <Status message='Deleting'/>)
   .add('Error', () => <Error message='Could not delete appointment' onClose={action('onClose')}/>)
+
+  .add('Edit', () => <Form student={'Sid'} interviewer={2} interviewers={interviewers} onSave={action('onSave')} onCancel={action('onCancel')}/>)
+  .add('Create', () => <Form interviewers={interviewers} onSave={action('onSave')} onCancel={action('onCancel')}/>)
