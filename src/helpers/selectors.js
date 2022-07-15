@@ -19,3 +19,19 @@ export function getAppointmentsForDay(state, day) {
     return finalObj
   }
 }
+
+export function getInterview(state, interview) {
+  if (interview === null) {
+    return null;
+  }
+
+  let finalObj = {};
+
+  let interviewerId = interview.interviewer;
+
+  finalObj['student'] = interview.student;
+
+  finalObj['interviewer'] = state.interviewers[interviewerId]
+
+  return finalObj;
+}
