@@ -35,3 +35,25 @@ export function getInterview(state, interview) {
 
   return finalObj;
 }
+
+export function getInterviewersForDay(state, day) {
+  let finalObj = [];
+
+  if (state.days.length === 0) {
+    return finalObj;
+  }
+
+  if (state.days.find(obj => obj.name === day)) {
+    let foundDay = state.days.find(obj => obj.name === day)
+    let interviewerList = foundDay.interviewers
+
+    interviewerList.map((item) => {
+      finalObj.push(state.interviewers[item]);
+    });
+
+    return finalObj;
+  } else {
+
+    return finalObj
+  }
+}

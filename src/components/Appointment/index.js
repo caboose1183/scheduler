@@ -32,7 +32,7 @@ export default function Appointment(props) {
       )}
 
       {mode === CREATE && (
-        <Form interviewers={[]} interviewer={props.interviewer} back={back}/>
+        <Form interviewers={props.interviewers} interviewer={props.interviewer} back={back}/>
       )}
 
 
