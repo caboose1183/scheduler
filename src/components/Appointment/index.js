@@ -56,6 +56,7 @@ export default function Appointment(props) {
         transition(EMPTY)
       })
       .catch((error) => {
+        console.log (error)
         transition(ERROR_DELETE, true)
       })
   }
