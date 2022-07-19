@@ -14,7 +14,7 @@ const { message, onClose } = props;
         className="appointment__error-close"
         src="images/close.png"
         alt="Close"
-        onClick={() => onClose()}
+        onClick={() => props.back()}
       />
     </main>
   )

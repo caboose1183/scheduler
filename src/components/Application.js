@@ -86,6 +86,7 @@ export default function Application(props) {
       
       setState({...state, appointments})
     })
+    
   }
 
   function cancelInterview(id, interview) {
@@ -99,6 +100,7 @@ export default function Application(props) {
       
       setState({...state, appointments})
     })
+    
   }
 
 
