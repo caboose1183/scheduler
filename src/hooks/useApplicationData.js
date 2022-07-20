@@ -24,10 +24,6 @@ export default function useVisualMode(initial) {
       ...state.appointments,
       [id]: appointment
     };
-    
-
-
-    
 
     return axios.put(`/api/appointments/${id}`, { interview })
       .then((response) => {
@@ -41,16 +37,11 @@ export default function useVisualMode(initial) {
       })
   }
 
-
-
-
   function cancelInterview(id, interview) {
     const appointments = {
       ...state.appointments,
       [id]: { ...state.appointments[id], interview: null }
     };
-
-
 
     return axios.delete(`/api/appointments/${id}`)
       .then((response) => {
