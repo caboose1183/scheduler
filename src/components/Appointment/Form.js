@@ -15,7 +15,7 @@ export default function Form(props) {
 
   function cancel() {
     reset()
-    props.back()
+    props.onCancel()
   }
 
   function validate() {

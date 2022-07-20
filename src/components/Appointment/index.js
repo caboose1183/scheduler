@@ -85,7 +85,7 @@ export default function Appointment(props) {
       )}
 
       {mode === CREATE && (
-        <Form interviewers={props.interviewers} back={back} onSave={save} />
+        <Form interviewers={props.interviewers} onCancel={back} onSave={save} />
       )}
 
       {mode === SAVING && <Status message={'Saving'} />}
@@ -95,7 +95,7 @@ export default function Appointment(props) {
       {mode === CONFIRM && <Confirm back={back} deleteInterview={deleteInterview} />}
 
       {mode === EDIT && (
-        <Form interviewers={props.interviewers} interviewer={props.interview.interviewer.id} back={back} onSave={save} student={props.interview.student} />
+        <Form interviewers={props.interviewers} interviewer={props.interview.interviewer.id} onCancel={back} onSave={save} student={props.interview.student} />
       )}
 
       {mode === ERROR_SAVE && <Error message={'Unable to save appointment'} back={back} />}

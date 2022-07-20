@@ -135,7 +135,6 @@ describe("Form", () => {
         onSave={jest.fn()}
         onCancel={onCancel}
         interviewer={interviewers[0].id}
-        back={jest.fn()}
       />
     );
   
