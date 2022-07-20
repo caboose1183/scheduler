@@ -18,7 +18,6 @@ describe("Appointments", () => {
       .click()
 
     cy.get('.button--confirm').click()
-
   });
 });
 
@@ -37,8 +36,6 @@ describe("Editing", () => {
     cy.get("[alt='Tori Malcolm']").click();
 
     cy.get('.button--confirm').click()
-
-
   });
 });
 
@@ -54,6 +51,5 @@ describe("Canceling", () => {
 
     cy.contains(".appointment__card--show", "Archie Cohen")
       .should("not.exist");
-
   });
 });

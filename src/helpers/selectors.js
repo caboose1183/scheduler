@@ -18,7 +18,7 @@ export function getAppointmentsForDay(state, day) {
 
     return finalObj
   }
-}
+};
 
 export function getInterview(state, interview) {
   if (interview === null) {
@@ -34,7 +34,7 @@ export function getInterview(state, interview) {
   finalObj['interviewer'] = state.interviewers[interviewerId]
 
   return finalObj;
-}
+};
 
 export function getInterviewersForDay(state, day) {
   let finalObj = [];
@@ -56,4 +56,4 @@ export function getInterviewersForDay(state, day) {
 
     return finalObj
   }
-}
+};

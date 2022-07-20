@@ -10,9 +10,6 @@ export default function useVisualMode(initial) {
   });
 
   const setDay = day => setState(prev => ({ ...prev, day }));
-  const setDays = days => setState(prev => ({ ...prev, days }));
-
-
 
   function bookInterview(id, interview) {
     const appointment = {
@@ -27,15 +24,11 @@ export default function useVisualMode(initial) {
 
     return axios.put(`/api/appointments/${id}`, { interview })
       .then((response) => {
-
-        //setState({ ...state, appointments })
-
         const newState = updateSpots({ ...state, appointments })
 
-        setState (newState)
-
+        setState(newState)
       })
-  }
+  };
 
   function cancelInterview(id, interview) {
     const appointments = {
@@ -45,24 +38,21 @@ export default function useVisualMode(initial) {
 
     return axios.delete(`/api/appointments/${id}`)
       .then((response) => {
-        //setState({ ...state, appointments })
 
         const newState = updateSpots({ ...state, appointments })
 
-        setState (newState)
+        setState(newState)
       })
-  }
+  };
 
   function getSpots(state) {
     const selectedDay = state.days.find((day) => state.day === day.name)
-
     const appointmentList = selectedDay.appointments
 
     const spots = appointmentList.filter((appointment) => !state.appointments[appointment].interview).length;
 
     return spots
-  }
-
+  };
 
   function updateSpots(state) {
     const selectedDay = state.days.find((day) => state.day === day.name)
@@ -80,9 +70,7 @@ export default function useVisualMode(initial) {
     return updatedState
   }
 
-
   useEffect(() => {
-    //axios.get("/api/days").then(response => setDays(response.data));
     Promise.all([
       axios.get("/api/days"),
       axios.get('/api/appointments'),
@@ -99,4 +87,4 @@ export default function useVisualMode(initial) {
     bookInterview,
     cancelInterview
   }
-}
+};

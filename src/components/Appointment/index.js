@@ -27,8 +27,6 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
-
-
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -46,7 +44,6 @@ export default function Appointment(props) {
       })
   }
 
-
   function deleteInterview() {
     transition(DELETING, true)
 
@@ -56,7 +53,7 @@ export default function Appointment(props) {
         transition(EMPTY)
       })
       .catch((error) => {
-        console.log (error)
+        console.log(error)
         transition(ERROR_DELETE, true)
       })
   }
@@ -67,7 +64,7 @@ export default function Appointment(props) {
 
   return (
     <article className="appointment" data-testid="appointment">
-      
+
       <Header time={props.time} />
 
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
@@ -80,7 +77,7 @@ export default function Appointment(props) {
           confirmDelete={confirmDelete}
           save={save}
           onEdit={() => transition('EDIT')}
-          
+
         />
       )}
 
@@ -100,7 +97,7 @@ export default function Appointment(props) {
 
       {mode === ERROR_SAVE && <Error message={'Unable to save appointment'} back={back} />}
 
-      {mode === ERROR_DELETE && <Error message={'Unable to delete appointment'} back={back}/>}
+      {mode === ERROR_DELETE && <Error message={'Unable to delete appointment'} back={back} />}
 
 
       {/* {props.interview ? <Show student={props.interview.student} */}
@@ -108,4 +105,4 @@ export default function Appointment(props) {
     </article>
 
   )
-}
+};

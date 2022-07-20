@@ -8,21 +8,11 @@ import axios from "axios";
 
 afterEach(cleanup);
 
-// it("defaults to Monday and changes the schedule when a new day is selected", () => {
-//   const { getByText } = render(<Application />);
-
-//   return waitForElement(() => getByText("Monday"))
-//     .then(() => {
-//       fireEvent.click(getByText("Tuesday"));
-//       expect(getByText("Leopold Silvers")).toBeInTheDocument();
-//     })
-// });
-
-it.skip("renders without crashing", () => {
+it("renders without crashing", () => {
   render(<Application />);
 });
 
-it.skip("changes the schedule when a new day is selected", async () => {
+it("changes the schedule when a new day is selected", async () => {
   const { getByText } = render(<Application />);
 
   await waitForElement(() => getByText("Monday"));
@@ -60,7 +50,7 @@ it("loads data, books an interview and reduces the spots remaining for the first
 
 it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
   // 1. Render the Application.
-  const { container, debug } = render(<Application />);
+  const { container } = render(<Application />);
 
   // 2. Wait until the text "Archie Cohen" is displayed.
   await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -145,7 +135,7 @@ it("shows the save error when failing to save an appointment", async () => {
   expect(getByText(appointment, "Error")).toBeInTheDocument();
 });
 
-it.only("shows the delete error when failing to delete an existing appointment", async () => {
+it("shows the delete error when failing to delete an existing appointment", async () => {
 
   const { container } = render(<Application />);
   await waitForElement(() => getByText(container, "Archie Cohen"));
